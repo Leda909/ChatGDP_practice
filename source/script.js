@@ -10,4 +10,25 @@ function submitApiKey(){
     const apiKeyForm = document.getElementById("apiKeyForm");
     apiKeyForm.parentNode.removeChild(apiKeyForm);
 }
+// DOM to stop submit button from reloading page//
+document.getElementById("submitApiKeyBtn").addEventListener('click', (event) =>{
+    event.preventDefault()
+}) 
 
+// Function to handle user input
+function UserInput() {
+    // Get the value of the user input
+    const userInputValue = document.getElementById("userInput").value;
+        console.log("User Input:", userInputValue);
+
+    // Display the user input in the chat output section
+    document.getElementById("chatOutput").textContent = userInputValue;
+
+    // Send the user input to the OpenAI API
+    // sendToOpenAI(userInputValue);
+}
+
+// DOM to stop submit button from reloading page//
+document.getElementById("submitUserInputBtn").addEventListener('click', (event) =>{
+    event.preventDefault()
+}) 
