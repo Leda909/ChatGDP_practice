@@ -28,7 +28,7 @@
             <form id="userInputForm">
                 <label for="usertext">User input:</label> <br><br>
                 <input type="text" id="userInput" placeholder="Enter user input">
-                <button id="submitUserInputBtn" type="button" onclick="UserInput()">Submit</button>
+                <button id="submitUserInputBtn" type="button" onclick="UserInput(), sendToOpenAI(apiKey, userQuestion)">Submit</button>
             </form>
         </section>
     </main>
