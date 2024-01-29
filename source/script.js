@@ -1,5 +1,6 @@
 let apiKey = "";  // APIkey stored in global variable
 let userQuestion = "";   // userQuestion stored in global variable
+let chatGdpRespond = "";
 
 function submitApiKey(){
     // Get the value of the API key input
@@ -60,7 +61,15 @@ function sendToOpenAI(apiKey, userQuestion) {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.json();
     })
-    .then((json) => console.log(json))
+    // .then((json) => console.log(json))
+    .then((data) =>
+        // console.log(data),
+        chatGdpRespond = data.choices[0].message.content, 
+        console.log(chatGdpRespond),
+
+    )
+    .then(() => document.getElementById('chatOutput').innerHTML = chatGdpRespond)
+
     .catch((error) => {
         console.error("Error sending request to OpenAI API:", error.message);
         if (error.response) {
@@ -69,9 +78,5 @@ function sendToOpenAI(apiKey, userQuestion) {
         }
         alert("Error sending request to OpenAI API. Check console for details.");
     });
-
-
 };
-
-
 
