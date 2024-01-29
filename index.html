@@ -10,7 +10,7 @@
     <main>
         <section>
             <div class="container">
-                <h2>Helpful Heriett</h2>
+                <h2>Helpful Hariett</h2>
                 <p>Hi, How can I help you today?</p>
                 <div class="chatRespond">
                     <p id="chatOutput"></p>
@@ -22,17 +22,17 @@
             <form id="apiKeyForm">
                 <label for="apikey">API key:</label> <br><br>
                 <input type="password" id="apiKeyInput" placeholder="Enter your API key">
-                <button type="button" onclick="submitApiKey()">Submit</button>
+                <button id="submitApiKeyBtn" type="button" onclick="submitApiKey()">Submit</button>
             </form>
         
             <form id="userInputForm">
                 <label for="usertext">User input:</label> <br><br>
                 <input type="text" id="userInput" placeholder="Enter user input">
-                <button type="button" onclick="UserInput()">Submit</button>
+                <button id="submitUserInputBtn" type="button" onclick="UserInput(), sendToOpenAI(apiKey, userQuestion)">Submit</button>
             </form>
         </section>
     </main>
     
-    <script src="script.js"></script>
+    <script src="source/script.js"></script>
 </body>
 </html>

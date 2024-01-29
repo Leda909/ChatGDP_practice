@@ -22,6 +22,7 @@ section {
     max-width: 90%;
     margin: auto;
 }
+
 .chatRespond{
     /* border: 2px solid black; */
     background-color: white;
@@ -29,6 +30,10 @@ section {
     min-height: 300px;
     margin: 40px 0;
     padding: 20px;
+}
+
+.chatRespond p {
+    color: black;
 }
 
 form {
