@@ -62,13 +62,12 @@ function sendToOpenAI(apiKey, userQuestion) {
         return response.json();
     })
     // .then((json) => console.log(json))
-    .then((data) =>
-        // console.log(data),
-        chatGdpRespond = data.choices[0].message.content, 
-        console.log(chatGdpRespond),
-
-    )
-    .then(() => document.getElementById('chatOutput').innerHTML = chatGdpRespond)
+    .then((data) => {
+        chatGdpRespond = data.choices[0].message.content;
+        console.log(chatGdpRespond);
+        return chatGdpRespond;
+    })
+    .then((chatResponse) => document.getElementById('chatOutput').innerHTML = chatResponse)
 
     .catch((error) => {
         console.error("Error sending request to OpenAI API:", error.message);
