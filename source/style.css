@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    display: inline;
+    box-sizing: border-box;
+    list-style: none;
     background-color: #e6b3e6;
     color:#ffffe6;
 }
@@ -14,11 +15,11 @@ main {
     background-color: #862d86;
 }
 
-.container h2, p{
+.chatGDP_container h2, p{
     text-align: center;
 }
 
-section {
+.container {
     max-width: 90%;
     margin: auto;
 }
@@ -32,8 +33,16 @@ section {
     padding: 20px;
 }
 
-.chatRespond p {
+/* .chatRespond p {
     color: black;
+} */
+
+#chatOutput{
+    /* overflow: scroll; */
+    height: 100%;
+    width: 100%;
+    color: black;
+    white-space: pre-line;
 }
 
 form {
@@ -58,3 +67,32 @@ label {
 #userInput{
     min-height: 100px;
 }
+
+/* Modal container */
+#modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgb(50, 27, 108);
+    z-index: 1;
+}
+  
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 2% auto;
+    padding: 20px;
+    width: 60%;
+    /* text-align: center; */
+    height: 700px;
+}
+
+/* .modal-content img {
+width: 700px;
+display: block;
+align-items: center;
+margin: 30px auto 10px auto;
+} */
