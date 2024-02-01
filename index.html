@@ -8,26 +8,33 @@
 </head>
 <body>
     <main>
-        <section>
-            <div class="container">
+        <!-- Modal section for apiKey -->
+        <section id="modal">
+            <div class="modal-content">
+                <form id="apiKeyForm">
+                    <label for="apikey">API key:</label> <br><br>
+                    <input type="password" id="apiKeyInput" placeholder="Enter your API key" required>
+                    <button id="submitApiKeyBtn" type="button" onclick="submitApiKey()">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="chatGDP_container">
                 <h2>Helpful Hariett</h2>
                 <p>Hi, How can I help you today?</p>
                 <div class="chatRespond">
-                    <p id="chatOutput"></p>
+                    <p id="chatOutput">
+                        
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <form id="apiKeyForm">
-                <label for="apikey">API key:</label> <br><br>
-                <input type="password" id="apiKeyInput" placeholder="Enter your API key">
-                <button id="submitApiKeyBtn" type="button" onclick="submitApiKey()">Submit</button>
-            </form>
-        
+        <section class="container">
             <form id="userInputForm">
                 <label for="usertext">User input:</label> <br><br>
-                <input type="text" id="userInput" placeholder="Enter user input">
+                <input type="text" id="userInput" placeholder="Enter user input" required>
                 <button id="submitUserInputBtn" type="button" onclick="UserInput(), sendToOpenAI(apiKey, userQuestion)">Submit</button>
             </form>
         </section>
