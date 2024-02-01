@@ -33,14 +33,16 @@ main {
     padding: 20px;
 }
 
-.chatRespond p {
+/* .chatRespond p {
     color: black;
-}
+} */
 
 #chatOutput{
     /* overflow: scroll; */
     height: 100%;
     width: 100%;
+    color: black;
+    white-space: pre-line;
 }
 
 form {

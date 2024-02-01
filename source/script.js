@@ -1,6 +1,6 @@
 const modal = document.getElementById("modal");
 const submitApiKeyBtn = document.getElementById("submitApiKeyBtn");
-
+var chatHistory = ""; 
 let apiKey = "";  // APIkey stored in global variable
 let userQuestion = "";   // userQuestion stored in global variable
 let chatGdpRespond = "";  //  chatGdpRespond stored in global variable
@@ -31,33 +31,11 @@ submitApiKeyBtn.addEventListener('click', (event) => {
 });
 
 
-
-// Function to handle user input
-function UserInput() {
-    // Get the value of the user input
-    userQuestion = document.getElementById("userInput").value;
-        console.log("User Input:", userQuestion);
-
-    // Send the user input to the OpenAI API
-    sendToOpenAI(apiKey, userQuestion);
-}
-
 // DOM to stop submit button from reloading page//
 document.getElementById("submitUserInputBtn").addEventListener('click', (event) =>{
     event.preventDefault()
 })
 
-// Function to send user input to OpenAI API
-// function sendToOpenAI(apiKey, userQuestion) {
-//     // If there is no input
-//     if (apiKey === '') {
-//         console.log('Password Error');
-//         return; 
-//     }
-//     if (userQuestion === '' ){
-//         console.log('user input error');
-//         return;
-//     } 
 
 
 const sendToOpenAI = () => {
@@ -73,6 +51,7 @@ const sendToOpenAI = () => {
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
                 messages: [{role: 'user', content: userQuestion}],
+                temperature: 0.7,
                 max_tokens: 100,
             }),
         })
@@ -81,16 +60,17 @@ const sendToOpenAI = () => {
             return response.json();
         })
         //.then((response) => response.json())
-        .then((json) => console.log(json))
+        //.then((json) => console.log(json))
         .then((data) => {
+            console.log(data);
             chatGdpRespond = data.choices[0].message.content;
                 console.log(chatGdpRespond);
             
-            return chatGdpRespond;
-
-            // document.getElementById("chatOutput").innerHTML += 
-            //         `<span>You:<span>${userQuestion}</span></span>
-            //         <p>${chatGdpRespond}</p><br>`;
+            // return chatGdpRespond;
+            chatHistory = chatHistory.concat("Question: "+userQuestion).concat("\n\n").concat("Answer: "+chatGdpRespond).concat("\n\n\n");
+                console.log(chatHistory);
+          
+            return chatHistory;
 
         })
         .then((chatResponse) => document.getElementById('chatOutput').innerHTML = chatResponse)
